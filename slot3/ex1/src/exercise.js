@@ -27,3 +27,4 @@ console.log(double5(5)); // Should print 10
 const isOdd = (x) = !isEven
 console.log(isEven(x));
 
+

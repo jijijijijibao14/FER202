@@ -12,4 +12,4 @@ const{
     }
 }= person;
 console.log(street); // Output: "Lalaland 12"
-console.log(city); // Output: "Unknown City"=
+console.log(city); // Output: "Unknown City"

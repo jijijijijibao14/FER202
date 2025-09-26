@@ -11,11 +11,13 @@ export function Exercise7() {
         <div>
             <h1>Exercise 7</h1>
             <p> Company 0 sau khi tang start len 1: </p>
-            <p> Truóc: {companies[0].name} - {companies[0].start} <br />
-                Sau:   {company0New.name} - {company0New.start}</p>
+            <p> Truoc: {companies[0].name} -{companies[0].start} - {companies[0].end} <br />
+                Sau:   {company0New.name} - {company0New.end} - {company0New.end}</p>
             
             <p> Demo concatAll function: </p>
-            <p>concatAll([1,2],[3],[4,5]) = {JSON.stringify(concatAll([1,2],[3],[4,5]))} </p>
+            <ul>
+                {concatAll([1,2],[3],[4,5]).map((num,index) => (<li key={index}>{num}</li>))}
+            </ul>
         </div>
     );
 }

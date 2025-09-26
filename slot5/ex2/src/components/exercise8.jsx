@@ -24,7 +24,11 @@ export function Exercise8() {
         <div>
             <h1>Exercise 8</h1>
             <p>Total: {stats.total}, Min: {stats.min}, Max: {stats.max}</p>
-            <p>Buckets: {JSON.stringify(buckets)}</p>
+            <p>Buckets: </p>
+            <ul>
+                <li>Teen: {buckets.teen}</li>
+                <li>Adult: {buckets.adult}</li>
+            </ul>
         </div>
     );
 }

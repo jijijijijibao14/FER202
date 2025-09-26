@@ -2,18 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 import { Exercise1 } from './components/exercise1';
 import { Exercise2 } from './components/exercise2';
-import { Exercise6 } from '../../ex2/src/components/exercise6';
-import { Exercise7 } from '../../ex2/src/components/exercise7';
-import { Exercise8 } from '../../ex2/src/components/exercise8';
+import { Exercise3 } from './components/exercise3';
+import { Exercise4 } from './components/exercise4';
+import { Exercise5 } from './components/exercise5';
 
 function App() {
   return (
     <div className="App">
       <Exercise1 />
       <Exercise2 />
-      <Exercise6 />
-      <Exercise7 />
-      <Exercise8 />
+      <Exercise3 />
+      <Exercise4 />
+      <Exercise5 />
     </div>
   );
 }

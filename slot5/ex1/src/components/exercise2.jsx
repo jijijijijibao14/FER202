@@ -36,7 +36,7 @@ export function Exercise2() {
                     <li key={person.id}>{person.name} - {person.age} tuổi</li>
                 ))}
             </ul>
-            
+              
         </div>
     );
 

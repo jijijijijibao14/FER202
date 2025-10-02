@@ -12,6 +12,7 @@ export function Exercise6() {
 ];
   const sortedCompanies = [...companies].sort((a, b) => (a.end - b.end));
   const top3 = sortedCompanies.slice(0, 3);
+  const sortedCompanies2 = [...companies].sort((a, b) => (b.start - a.start));
 
   return (
     <div>
@@ -23,6 +24,9 @@ export function Exercise6() {
         <p> Top 3 cong ty ket thuc som nhat: </p>
         <ul>
           {top3.map((Company, end) => (<li key={Company.end}>{Company.name} - {Company.end}</li>))}
+        </ul>
+        <ul>
+          {sortedCompanies2.sort().map((Company, start) => (<li key={Company.start}>{Company.name} - {Company.start}</li>))}
         </ul>
         
     </div>

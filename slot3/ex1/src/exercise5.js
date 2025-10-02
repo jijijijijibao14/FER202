@@ -9,3 +9,5 @@ const teens = people
     .filter(person => person.age>= 13 && person.age<=19)
     .map(person => `${person.name} (${person.age})`);
 teens.forEach(teen => console.log(teen));
+
+console.log(people[1].name);

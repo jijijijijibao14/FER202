@@ -15,6 +15,9 @@ export function Exercise2() {
     ];
     const sum = intArray.reduce((acc, num) => acc + num, 0);
     const begaysungtrau = みなさん.filter(person => person.age >= 13 && person.age <= 19);
+    const isTeen = (t) => t >= 13 && t <= 19;
+    const p2 = みなさん[1];
+    const isP2Teen = p2 => p2.age >= 13 && p2.age <= 19;
     return (
         <div>
             <h2>Chi tiết bài tập 2</h2>
@@ -36,6 +39,7 @@ export function Exercise2() {
                     <li key={person.id}>{person.name} - {person.age} tuổi</li>
                 ))}
             </ul>
+            <p>Số 2 phải tuổi teen không: {isP2Teen(p2) ? "Có" : "Không"}</p>
               
         </div>
     );

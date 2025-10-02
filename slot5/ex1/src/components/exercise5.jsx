@@ -16,6 +16,7 @@ const teens = people
             {teens.map((str, idx) => (
                 <div key={idx}>{str}</div>
             ))}
+            <p>{people[1].name}</p>
         </div>
     );
 }

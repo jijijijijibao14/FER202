@@ -5,18 +5,17 @@ export default function Booking(){
 
       <form className="bg-dark p-4 rounded">
         <div className="row mb-3">
-          <div className="col-md-4">
+            <div className ="alert alert-info mt-4" role ="alert">
+                Nhap thong tin de dat ban
+            </div>
+          <div className="col-md-4"> 
             <input
-              type="text"
-              className="form-control"
-              placeholder="Your Name *"
+              type="text" className="form-control" placeholder="Your Name *"
             />
           </div>
           <div className="col-md-4">
             <input
-              type="email"
-              className="form-control"
-              placeholder="Your Email *"
+              type="email" className="form-control" placeholder="Your Email *"
             />
           </div>
           <div className="col-md-4">

@@ -18,7 +18,7 @@ export default function HomeCarousel() {
           />
           <Carousel.Caption
             className="text-start"
-            style={{
+            style={{                        
               background: "rgba(0,0,0,0.35)",
               borderRadius: 12,
               padding: "0.75rem 1rem",

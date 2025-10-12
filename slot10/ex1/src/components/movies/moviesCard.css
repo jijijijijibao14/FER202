@@ -1,0 +1,21 @@
+.card{
+   margin : 30px 0px 20px 100px;
+   height : 500px;
+   background-image: linear-gradient(to bottom right, #555235, #81ba37);
+}
+
+.card img{
+    height: 300px;
+}
+.card-text{
+    color : white;
+}
+.card-title{
+    color : orange;
+}
+
+
+h2{
+    color : rgb(255, 153, 0);
+    text-align : center;
+}

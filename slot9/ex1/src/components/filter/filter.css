@@ -1,0 +1,13 @@
+.filter-card {
+    box-shadow: none !important;
+    border-radius: 8px !important;
+    background: #f8f8e8 !important;
+    transition: none !important;
+    width: 1230px;
+    height: 100px;
+}
+
+.filter-card:hover {
+    box-shadow: none !important;
+    transform: none !important;
+}

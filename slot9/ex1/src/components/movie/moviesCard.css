@@ -1,0 +1,42 @@
+.card{
+   margin : 30px 0px 20px 50px;
+   height : 500px;
+   width : 500px;
+   background-image: linear-gradient(to bottom right, #f3f0dd, #ecf3e4);
+}
+
+.card:hover{
+    transform : scale(1.1);
+    transition : 0.3s;
+    box-shadow : 5px 5px 15px black;
+}
+
+.card img{
+    height: 300px;
+    width: 100%;
+
+}
+
+.card-title{
+    color : orange;
+}
+
+
+h2{
+    color : rgb(255, 153, 0);
+    text-align : center;
+}
+
+.modal-body img{
+    height : 300px;
+    width : 500px;
+}
+.toast-container {
+  position: fixed !important; 
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+.custom-toast{
+    border: 2px solid #176be9 !important;
+}

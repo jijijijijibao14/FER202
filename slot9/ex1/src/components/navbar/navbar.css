@@ -1,0 +1,16 @@
+.navbar-custom{
+    width: 100vw !important;  
+    height: 60px ;   
+    margin: 0 !important;
+    padding: 0 10px !important;  
+    border-radius: 0 !important;
+    position: fixed;              
+    top: 0;
+    left: 0;
+    z-index: 1000;     
+}
+.nav-tabs  {
+  flex-direction: row !important;
+  justify-content: start;
+  gap: 5px;
+}

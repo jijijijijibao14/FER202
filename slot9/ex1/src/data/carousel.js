@@ -4,7 +4,7 @@ export const carouselMovies = [
     title: 'Mưa Đỏ',
     description:
       'thành cổ Quảng Trị',
-    poster: '/image/muado.png',
+    poster: '/image/muado.jpg',
     genre: 'Historical',
     year: 2025,
     country: 'VietNam',
@@ -14,7 +14,7 @@ export const carouselMovies = [
     title: 'Tee Yod 3',
     description:
       'Ghost.',
-    poster: '/image/teayod.png',
+    poster: '/image/teeyod3.jpg',
     genre: 'horror',
     year: 2025,
     country: 'ThaiLand',
@@ -27,7 +27,7 @@ export const carouselMovies = [
       'hoạt hình',
     poster: '/image/doraemon.png',
     genre: 'Anime',
-    year: 2019,
+    year: 2025,
     country: 'Japan',
     duration: 118
   }

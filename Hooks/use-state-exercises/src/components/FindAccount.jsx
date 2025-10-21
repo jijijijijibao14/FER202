@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
+import {Button, Card} from 'react-bootstrap';
 
 const accounts = [
-    { username: 'conbocuoi', password: 'troconbo', email: 'conbocuoi@gmail.com'},
-    { username: 'Skibidi', password: 'skibidi123', email: 'skibidi123@gmail.com'},
-    { username: 'huysvpbvm', password:'huycan', email: 'huypbvm611@gmail.com'},
-    { username: 'myhoaky', password: 'danchukeodong', email: 'danchu456@gmail.com'}
+    { username: 'conbocuoi', password: 'troconbo', email: 'conbocuoi@gmail.com', img:'/image/conbocuoi.png' },
+    { username: 'Skibidi', password: 'skibidi123', email: 'skibidi123@gmail.com', img: '/image/skibidi.png' },
+    { username: 'huysvpbvm', password:'huycan', email: 'huypbvm611@gmail.com', img:'/image/huy.png' },
+    { username: 'myhoaky', password: 'danchukeodong', email: 'danchu456@gmail.com', img:'/image/hoaky.png' },
 ];
 function FindAccount() {
     const [username, setUsername] = useState('');
@@ -31,6 +31,7 @@ function FindAccount() {
         setFoundAccount(null);
         setError('');
     };  
+    
     return (
         <div style={{ maxWidth: 400, margin: '40px auto', padding: '24px', borderRadius: '12px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', background: '#f7fafd' }}>
             <h3 style={{ textAlign: 'center', color: '#1976d2', marginBottom: 24 }}>Tìm kiếm tài khoản</h3>
@@ -51,12 +52,33 @@ function FindAccount() {
                     <p><strong>Tên người dùng:</strong> {foundAccount.username}</p>
                     <p><strong>Mật khẩu:</strong>{foundAccount.password}</p>
                     <p><strong>Email:</strong> {foundAccount.email}</p>
+                    <img src= {foundAccount.img}/>
                     <Button onClick={handleReset} style={{ marginTop: 10, padding: '8px 16px', borderRadius: '6px', background: '#1976d2', color: 'white', fontSize: 14, border: 'none', cursor: 'pointer' }}>
                         Đóng    
                     </Button>
                 </div>
             )}
+            <div className="container">
+                <div className="row d-flex justify-content-center mt-4">
+                    {accounts.map((account, index) => (
+                    <div key={index} className="col-3 mb-3">
+                        <Card>
+                        <Card.Img
+                            variant="top"
+                            src={account.img}
+                            style={{ height: '150px', objectFit: 'cover' }}
+                        />
+                        <Card.Body>
+                            <Card.Title className="text-center">{account.username}</Card.Title>
+                        </Card.Body>
+                        </Card>
+                    </div>
+                    ))}
+                </div>
+            </div>
         </div>
+        
+                
     );
 }
 export default FindAccount;

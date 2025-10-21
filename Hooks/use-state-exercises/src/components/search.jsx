@@ -15,16 +15,7 @@ function SearchItem() {
   );
 
   return (
-    <div
-      style={{
-        maxWidth: 400,
-        margin: '40px auto',
-        padding: '24px',
-        borderRadius: '12px',
-        boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
-        background: '#f7fafd',
-      }}
-    >
+    <div style={{ maxWidth: 400, margin: '40px auto', padding: '24px', borderRadius: '12px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', background: '#f7fafd',}}>
       <h3 style={{ textAlign: 'center', color: '#1976d2', marginBottom: 24 }}>
         Tìm kiếm theo tên
       </h3>

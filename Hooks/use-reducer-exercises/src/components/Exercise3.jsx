@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 import { Form, Button, Card, Container, Row, Col, Modal } from 'react-bootstrap';
+import ConfirmModal from './confirmModal';
 
 const initialState = { user: { username: '', password: '' }, errors: {}, showModal: false,};
 
@@ -117,31 +118,25 @@ function LoginForm() {
                     {state.errors.password}
                   </Form.Control.Feedback>
                 </Form.Group>
-
-                <Button variant="primary" type="submit" className="w-100">
+              <div className="d-flex gap-2">
+                <Button variant="primary" type="submit" className="flex-fill">    
                   Login
                 </Button>
+                <Button variant="secondary" type="button" className='flex-fill' onClick={() => dispatch({ type: 'RESET' })}>
+                    Cancel
+                  </Button>
+              </div>
               </Form>
             </Card.Body>
           </Card>
         </Col>
       </Row>
 
-      <Modal show={state.showModal} onHide={handleCloseModal} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Login Successful</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p className="text-success text-center">
-            Welcome, {state.user.username}!
-          </p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="success" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <ConfirmModal  
+      show={state.showModal} 
+      title="Login Successful" 
+      message={`Welcome, ${state.user.username}! You have successfully logged in!`} 
+      onConfirm={handleCloseModal} />
     </Container>
   );
 }

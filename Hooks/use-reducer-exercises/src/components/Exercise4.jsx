@@ -7,7 +7,7 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case "change_user": {
+    case "SET_FIELD": {
       const { name, value } = action.payload;
       const user = { ...state.user, [name]: value };
       const errors = validate(user);
@@ -68,7 +68,7 @@ function RegisterForm() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    dispatch({ type: "change_user", payload: { name, value } });
+    dispatch({ type: "SET_FIELD", payload: { name, value } });
   };
 
   const handleSubmit = (e) => {

@@ -45,8 +45,8 @@ const FilterBar = () => {
         <Col md={2}>
           <Form.Select name="sort" value={filters.sort} onChange={handleChange}>
             <option value="">Sắp xếp</option>
-            <option value="asc">Tên ↑</option>
-            <option value="desc">Tên ↓</option>
+            <option value="asc">Tên a-z</option>
+            <option value="desc">Tên z-a</option>
           </Form.Select>
         </Col>
       </Row>

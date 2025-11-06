@@ -1,12 +1,14 @@
 import React, { useReducer } from "react";
-import { Form, Button, Alert, Card, Container } from "react-bootstrap";
+import { Form, Button, Alert, Card, Container, Modal } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import ConfirmModal from "./ConfirmModal";
 
 const initialState = {
   user: { username: "", password: "" },
   errors: {},
   errorMessage: "",
+  showModal: false,
 };
 
 function reducer(state, action) {
@@ -20,6 +22,11 @@ function reducer(state, action) {
       return { ...state, errors: rest };
     case "SET_MESSAGE":
       return { ...state, errorMessage: action.message };
+    case 'SHOW_MODAL':
+      return { ...state, showModal: true };
+
+    case 'HIDE_MODAL':
+      return { ...state, showModal: false };
     case "RESET":
       return initialState;
     default:
@@ -58,9 +65,21 @@ function LoginForm() {
     }
 
     const found = await login(username, password);
-    if (found) navigate("/movies");
-    else dispatch({ type: "SET_MESSAGE", message: "Sai tài khoản hoặc mật khẩu!" });
+    if (found) {
+    dispatch({ type: "SHOW_MODAL" });
+    
+    setTimeout(() => {
+      navigate("/movies");
+    }, 1500);
+  } else {
+    dispatch({ type: "SET_MESSAGE", message: "Sai tài khoản hoặc mật khẩu!" });
+  }
   };
+
+  const handleCloseModal = () => {
+        dispatch({ type: 'HIDE_MODAL' });
+        dispatch({ type: 'RESET' });
+      };
 
   return (
     <Container
@@ -125,6 +144,11 @@ function LoginForm() {
           </div>
         </Form>
       </Card>
+      <ConfirmModal  
+      show={state.showModal} 
+      title="Login Successful" 
+      message={`Welcome, ${state.user.username}! You have successfully logged in!`} 
+      onConfirm={handleCloseModal} />
     </Container>
   );
 }

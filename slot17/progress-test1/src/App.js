@@ -1,11 +1,10 @@
-import React from "react";
+import logo from './logo.svg';
+import './App.css';
 import {Routes, Route, Navigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
-import Header from "./components/Header";
-import WelcomePage from "./pages/WelcomePage";
-import MovieManager from "./pages/MovieManager";
-import MovieDetail from "./pages/MovieDetail";
+import LoginPage from "./pages/LoginPage"
+import DashboardPage from "./pages/DashboardPage"
 
 const PrivateRoute = ({ children }) => {
   const { user } = useAuth();
@@ -15,18 +14,16 @@ const PrivateRoute = ({ children }) => {
 function App() {
   return (
     <AuthProvider>
-        <Header />
         <Routes>
-          <Route path="/" element={<WelcomePage />} />
-          <Route
-            path="/movies"
-            element={
+          <Route path="/" element={<LoginPage />} />
+          <Route 
+              path="/home"
+              element={
               <PrivateRoute>
-                <MovieManager />
+                <DashboardPage />
               </PrivateRoute>
             }
           />
-           <Route path="/movies/:movieId" element={<MovieDetail />} />
         </Routes>
     </AuthProvider>
   );

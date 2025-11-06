@@ -1,6 +1,7 @@
 import React from 'react';
-import { Table, Button, Image, Modal, Alert, Spinner, Badge } from 'react-bootstrap';
+import { Table, Button, Image, Modal, Alert, Spinner } from 'react-bootstrap';
 import { useMovieState, useMovieDispatch } from '../contexts/MovieContext';
+import { Link } from 'react-router-dom';
 
 const MovieTable = () => {
   const state = useMovieState();
@@ -65,22 +66,28 @@ const MovieTable = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredMovies.map((movie, index) => (
+            {filteredMovies.map((movie, index) => {
+              const genreName = genreMap[movie.genreId] || 'Unknown';
+              return (
+
               <tr key={movie.id}>
                 <td><Image src={movie.avatar} alt={movie.name} style={{ width: '50px', height: '50px', objectFit: 'cover' }} rounded /></td>
                 <td>#{movie.id}</td>
                 <td>
-                  <strong>{movie.name}</strong><br/>
+                  <strong>{movie.title}</strong><br/>
                   <small className="text-muted">({movie.year})</small>
                 </td>
-                <td>{movie.category}</td>
+                <td>{genreName}</td>
                 <td>{movie.duration} phút</td>
                 <td>
+                  <Link to={`/movies/${movie.id}`}>
+                  <Button className="me-2" variant="warning" size="sm">View</Button>
+                  </Link>
                   <Button variant="primary" size="sm" onClick={() => handleEditClick(movie)} className="me-2">Sửa</Button>
                   <Button variant="danger" size="sm" onClick={() => handleDeleteClick(movie)}>Xóa</Button>
                 </td>
               </tr>
-            ))}
+           )})}
           </tbody>
         </Table>
       )}

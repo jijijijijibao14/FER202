@@ -1,43 +1,38 @@
 // src/reducers/movieReducers.jsx
 export const initialMovieState = {
-  movies: [],
-  filteredMovies: [],
-  genres: [], 
+  payments: [],
+  filteredPayment: [],
   loading: false, 
   isEditing: null, 
-  currentMovie: { avatar: '', name: '', category: '', duration: '', year: '', rating: '' },
+  currentPayment: { semester: '', courseName: '', amount: '', date: ''},
   showEditModal: false,   
   showDeleteModal: false, 
-  movieToDelete: null     
+  paymentToDelete: null     
 };
 
-export const movieReducer = (state, action) => {
+export const paymentReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_MOVIES':
+    case 'SET_PAYMENTS':
       return { 
         ...state, 
-        movies: action.payload, 
-        filteredMovies: action.payload,  // ✅ luôn đồng bộ khi tải dữ liệu
+        payments: action.payload, 
+        filteredPayment: action.payload,  // ✅ luôn đồng bộ khi tải dữ liệu
         loading: false 
       };
-    
-    case 'SET_GENRES': 
-      return { ...state, genres: action.payload };
-      
+
     case 'START_LOADING':
       return { ...state, loading: true };
       
     case 'UPDATE_FIELD':
       return { 
           ...state, 
-          currentMovie: { ...state.currentMovie, [action.payload.name]: action.payload.value }
+          currentPayment: { ...state.currentPayment, [action.payload.name]: action.payload.value }
       };
 
     case 'OPEN_EDIT_MODAL':
-      // Gán dữ liệu phim vào currentMovie để điền vào form sửa
       return { 
         ...state, 
-        currentMovie: action.payload, 
+        currentPayment: action.payload, 
         isEditing: action.payload.id,
         showEditModal: true 
       };
@@ -45,7 +40,7 @@ export const movieReducer = (state, action) => {
     case 'CLOSE_EDIT_MODAL':
       return { 
         ...state, 
-        currentMovie: initialMovieState.currentMovie,
+        currentPayment: initialMovieState.currentMovie,
         isEditing: null,
         showEditModal: false 
       };
@@ -53,35 +48,35 @@ export const movieReducer = (state, action) => {
     case 'OPEN_DELETE_MODAL':
         return {
             ...state,
-            movieToDelete: action.payload,
+            paymentToDelete: action.payload,
             showDeleteModal: true 
         };
 
     case 'CLOSE_DELETE_MODAL':
         return {
             ...state,
-            movieToDelete: null,
+            paymentToDelete: null,
             showDeleteModal: false 
         };
       
     case 'RESET_FORM':
       return { 
         ...state, 
-        currentMovie: initialMovieState.currentMovie, 
+        currentPayment: initialPaymentState.currentPayment, 
         isEditing: null,
         showEditModal: false,
       };
 
     case "FILTER_MOVIES": {
-      const { name, genreId, duration, sort } = action.payload;
-      let filtered = [...state.movies];
+      const { name, paymentId, semester, sort } = action.payload;
+      let filtered = [...state.payments];
 
       if (name)
         filtered = filtered.filter((m) =>
           (m.name || "").toLowerCase().includes(name.toLowerCase())
         );
-      if (genreId)
-        filtered = filtered.filter((m) => String(m.genreId) === String(genreId));
+      if (paymentId)
+        filtered = filtered.filter((m) => String(m.paymentId) === String(paymentId));
       
       if (duration === "short") filtered = filtered.filter(m => m.duration < 100);
       if (duration === "medium") filtered = filtered.filter(m => m.duration >= 100 && m.duration <= 120);

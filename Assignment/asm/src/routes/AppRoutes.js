@@ -1,0 +1,19 @@
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import LoginPage from "../pages/LoginPage";
+import HomePage from "../pages/HomePage";
+import { useAuth } from "../contexts/AuthContext";
+
+const AppRoutes = () => {
+  const { token } = useAuth();
+
+  return (
+    <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/home" element={token ? <HomePage /> : <Navigate to="/login" />} />
+      <Route path="*" element={<Navigate to="/login" />} />
+    </Routes>
+  );
+};
+
+export default AppRoutes;

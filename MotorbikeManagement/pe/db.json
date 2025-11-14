@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Piaggio Liberty ABS",
+      "year": 2020,
+      "price": 1800,
+      "stock": 5,
+      "brand": "Piaggio",
+      "image": "images/ABS.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Yamaha Exciter 155",
+      "year": 2023,
+      "price": 1700,
+      "stock": 9,
+      "brand": "Yamaha",
+      "image": "images/Ex.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Honda Winner X",
+      "year": 2022,
+      "price": 1500,
+      "stock": 9,
+      "brand": "Honda",
+      "image": "images/winner.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Suzuki Raider R150",
+      "year": 2021,
+      "price": 1400,
+      "stock": 12,
+      "brand": "Honda",
+      "image": "images/raider.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123456"
+    }
+  ]
+}
